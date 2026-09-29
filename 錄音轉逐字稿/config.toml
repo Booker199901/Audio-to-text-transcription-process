@@ -1,0 +1,29 @@
+[transcription]
+# 一般只需修改這兩個資料夾；也可在命令列使用 --input-dir 與 --output-dir。
+input_dir = "input"
+output_dir = "output"
+
+# large-v3 以精準度優先；若硬體較慢，可改成 turbo 或 medium。
+model = "large-v3"
+language = "zh"
+
+# auto 會優先使用可用的 NVIDIA CUDA，否則使用 CPU int8。
+device = "auto"
+compute_type = "auto"
+
+# beam_size 越高通常越穩定但越慢；5 是兼顧精準度與速度的實用值。
+beam_size = 5
+
+# 長錄音每 30 分鐘切成記憶體分段，完成一段就寫入續跑檢查點。
+chunk_minutes = 30
+
+# 過濾較長靜音以降低幻覺文字；若會議停頓很多，可維持此預設值。
+vad_min_silence_ms = 700
+
+# 在此加入公司、人名、產品與專案名稱，可提高專有名詞辨識率。
+initial_prompt = "以下是使用臺灣繁體中文的會議逐字稿，包含人名、公司名、產品名、數字與專有名詞。"
+hotwords = ""
+
+# 將模型偶爾輸出的簡體字轉為臺灣繁體；不使用 LLM 改寫原句。
+convert_to_traditional = true
+condition_on_previous_text = true

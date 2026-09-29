@@ -1,0 +1,5 @@
+faster-whisper==1.2.1
+# CTranslate2 4.8.x uses CUDA 12 and cuDNN 9 per the faster-whisper GPU guide.
+ctranslate2==4.8.1
+opencc==1.4.1
+tqdm==4.68.4
